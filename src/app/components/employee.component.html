@@ -1,0 +1,75 @@
+<head>
+    <style>
+    body {padding: 8px 32px;}
+    h1{font-family: Arial, Helvetica, sans-serif;}
+    h3{font-family: Arial, Helvetica, sans-serif;}
+    thead {color:rgb(255, 255, 255);}
+    tbody {color:rgb(52, 117, 59);}    
+    
+    table, th, td {
+      font-style: normal;
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 8px 22px;
+      text-align: center;
+      border: 0;  
+      border-radius: 6px;        
+    }
+    .table row {width:350px;} 
+    .button {
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.button1 { padding: 8px 22px; background-color: #78bb78;} 
+.button2 { padding: 6px 18px; background-color: white; 
+  color: #008CBA; 
+  border: 2px solid #008CBA;} 
+.button3 { padding: 6px 18px; background-color: white; 
+  color:#b64d5b;
+  border: 2px solid #b64d5b;}
+    </style>
+ </head>
+
+<body>    
+    
+<h1>{{title}}</h1>
+
+<h3>First name <input type="text" [(ngModel)]="firstName" /></h3>
+<h3>Last name <input type="text" [(ngModel)]="lastName" /> </h3>
+<h3>Gender type <input type="text" [(ngModel)]="genderType" /></h3>
+<h3>Company <input type="text" [(ngModel)]="companyId" /> </h3>
+
+<button class="button button1"(click)="addEmployee()">Add</button>
+ 
+  <table>
+    <thead class="table table-stiped table">
+      <tr>
+        <th style="background-color:#477951">First name</th>
+        <th style="background-color:#4b6e4b">Last name</th>
+        <th style="background-color:#4b6e4b">Gender type</th> 
+        <th style="background-color:#4b6e4b">Company</th> 
+        <th style="background-color:#4b6e4b"></th>         
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+           <td> {{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.genderType}}</td>
+            <td>{{employee.companyId}}</td>
+            <td>
+                    <button class="button button2"(click)="updateEmployee()" type =>Update</button>
+                    <button class="button button3" (click)="deleteEmployee(employee.id)">Delete</button>           
+            </td>        
+      </tr>     
+    </tbody>  
+  </table>  
+
+</body>
